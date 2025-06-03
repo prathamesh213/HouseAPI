@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - House Price Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">House Price Predictor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container mt-5 pt-5">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-8">
+                <h1 class="display-4 fw-bold mb-3">About the Project</h1>
+                <p class="lead text-muted">Learn more about our advanced house price prediction system</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card shadow mb-5">
+                    <div class="card-header">
+                        <h3 class="mb-0">Project Overview</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">This House Price Prediction application uses machine learning to estimate property values based on key features such as the number of bedrooms, bathrooms, floors, and the year the house was built. The model is trained on historical housing data to provide accurate price predictions.</p>
+                    </div>
+                </div>
+
+                <div class="card shadow mb-5">
+                    <div class="card-header">
+                        <h3 class="mb-0">Technology Stack</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="p-4 bg-light rounded-3">
+                                    <h5 class="mb-3">Backend</h5>
+                                    <p class="mb-0">Python with Flask framework</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-4 bg-light rounded-3">
+                                    <h5 class="mb-3">Machine Learning</h5>
+                                    <p class="mb-0">Scikit-learn with Linear Regression</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-4 bg-light rounded-3">
+                                    <h5 class="mb-3">Frontend</h5>
+                                    <p class="mb-0">HTML, CSS, Bootstrap 5</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-4 bg-light rounded-3">
+                                    <h5 class="mb-3">Data Processing</h5>
+                                    <p class="mb-0">Pandas, NumPy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow mb-5">
+                    <div class="card-header">
+                        <h3 class="mb-0">About the Developer</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">I am a passionate data scientist and web developer with expertise in machine learning and full-stack development. This project combines my interests in real estate analytics and practical machine learning applications.</p>
+                    </div>
+                </div>
+
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h3 class="mb-0">Project Goals</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="p-4 bg-light rounded-3">
+                                    <h5 class="mb-3">Accuracy</h5>
+                                    <p class="mb-0">Provide precise house price predictions using advanced ML algorithms</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-4 bg-light rounded-3">
+                                    <h5 class="mb-3">User Experience</h5>
+                                    <p class="mb-0">Offer an intuitive and modern interface for easy interaction</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-4 bg-light rounded-3">
+                                    <h5 class="mb-3">Decision Support</h5>
+                                    <p class="mb-0">Help users make informed real estate decisions</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-4 bg-light rounded-3">
+                                    <h5 class="mb-3">Innovation</h5>
+                                    <p class="mb-0">Demonstrate practical machine learning applications</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 House Price Predictor. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

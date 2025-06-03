@@ -6,7 +6,7 @@ from sklearn.pipeline import make_pipeline
 import pickle
 
 # Load dataset
-df = pd.read_csv(r'_YOUR_LOCATION_\house_data.csv')
+df = pd.read_csv('house_data.csv')
 
 # Select relevant columns
 columns = ['bedrooms', 'bathrooms', 'floors', 'yr_built', 'price']

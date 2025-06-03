@@ -1,31 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Price Prediction</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='css/main.css') }}">
-    <script src='main.js'></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 
 <body>
-    <div class="register_page">
-        <div class="form">
-            <form action="{{url_for('predict')}}" method="POST">
-                Bedrooms: <input type="number" name='bedrooms' placeholder="Enter the no of Bedrooms"><br>
-                Bathrooms: <input type="number" name='bathrooms' placeholder="Enter the no of Bathrooms"><br>
-                Floors: <input type="number" name='floors' placeholder="Enter the no of Floors"><br>
-                Year of Build: <input type="number" name='yr_built' placeholder="Enter year of Build"><br>
-                <input type="submit" value="predict" class="submit">
-            </form>
-            <p> House Price is: {{data}}</p>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">House Price Predictor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <div class="container mt-5 pt-5">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-8">
+                <h1 class="display-4 fw-bold mb-3">Predict House Prices with AI</h1>
+                <p class="lead text-muted">Get accurate price predictions using our advanced machine learning model</p>
+            </div>
+        </div>
     </div>
 
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h3 class="mb-0">Enter House Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Flash Messages -->
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="alert alert-{{ category if category != 'error' else 'danger' }} alert-dismissible fade show">
+                                        {{ message }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
 
+                        <form action="{{ url_for('predict') }}" method="POST" class="needs-validation" novalidate>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label for="bedrooms" class="form-label">Number of Bedrooms</label>
+                                    <input type="number" class="form-control" id="bedrooms" name="bedrooms" required min="1" max="20" placeholder="Enter bedrooms">
+                                    <div class="invalid-feedback">Please enter a valid number of bedrooms (1-20)</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="bathrooms" class="form-label">Number of Bathrooms</label>
+                                    <input type="number" class="form-control" id="bathrooms" name="bathrooms" required min="1" max="20" placeholder="Enter bathrooms">
+                                    <div class="invalid-feedback">Please enter a valid number of bathrooms (1-20)</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="floors" class="form-label">Number of Floors</label>
+                                    <input type="number" class="form-control" id="floors" name="floors" required min="1" max="10" placeholder="Enter floors">
+                                    <div class="invalid-feedback">Please enter a valid number of floors (1-10)</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="yr_built" class="form-label">Year Built</label>
+                                    <input type="number" class="form-control" id="yr_built" name="yr_built" required min="1800" max="2024" placeholder="Enter year">
+                                    <div class="invalid-feedback">Please enter a valid year (1800-2024)</div>
+                                </div>
+                            </div>
+                            <div class="mt-5 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">Predict Price</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 House Price Predictor. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Form validation
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
 </body>
 
 </html>
